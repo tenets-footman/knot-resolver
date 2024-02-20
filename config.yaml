@@ -1,0 +1,40 @@
+  GNU nano 6.2                                                                    /etc/knot-resolver/config.yaml                                                                             
+  listen:
+    # Unencrypted DNS on port 53 (default).
+    - interface: &interfaces
+        - 127.0.0.1
+        - 192.168.1.253
+        - "::1"
+        # IPv6 addresses and other strings starting
+        # with a colon need to be quoted.
+    # DNS-over-TLS on port 853 (default).
+    - interface: *interfaces
+      kind: dot 
+    # DNS-over-HTTPS (port 443 is default). 
+    - interface: *interfaces
+      kind: doh2
+      # The port can also be set explicitly.
+      port: 5000
+#forward:
+  # encrypted public resolver, for all names
+#  - subtree: "."
+#    servers:
+#      - address:
+#          - 2a07:a8c0::b5:8585
+#          - 45.90.28.137
+#          - 45.90.30.137
+#        transport: tls
+#        hostname: dns.nextdns.io
+views:
+  # Allowed subnets.
+  - subnets: [ 192.168.1.0/24, 127.0.0.1, "::1" ]
+    answer: allow
+  # A subnet for which additional rules
+  # are assigned using tags.
+  - subnets: [  192.168.1.0/24, 127.0.0.1, "::1" ]
+    tags: [ malware, localnames ]
+  # Everything else is refused.
+  - subnets: [ 0.0.0.0/0, "::/0" ]
+    answer: refused
+management:
+  unix-socket: /run/knot-resolver/manager.sock
