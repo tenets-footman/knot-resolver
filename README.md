@@ -7,4 +7,6 @@ Knot resolver configuration file: config.yaml
 'sudo kresctl validate /etc/knot-resolver/config.yaml'
 
 **Reload knot resolver:**
-'sudo systemctl reload knot-resolver.service'
+'
+sudo systemctl reload knot-resolver.service
+'
