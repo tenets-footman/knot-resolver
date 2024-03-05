@@ -25,12 +25,9 @@ cert-file: *path*
 
 key-file: *path*
 
-    network:
-    
-      tls:
-      
-        cert-file: /etc/knot-resolver/server-cert.pem
-        
+    network:    
+      tls:      
+        cert-file: /etc/knot-resolver/server-cert.pem        
         key-file: /etc/knot-resolver/server-key.pem
 
 > **Tip**
