@@ -30,9 +30,8 @@ key-file: <path>
         cert-file: /etc/knot-resolver/server-cert.pem
         key-file: /etc/knot-resolver/server-key.pem
 
-    Tip
-
-    The certificate files aren’t automatically reloaded on change. If you update the certificate files, e.g. using ACME, you have to either reload or restart the service(s).
+> **Tip**
+> The certificate files aren’t automatically reloaded on change. If you update the certificate files, e.g. using ACME, you have to either reload or restart the service(s).
 
 
 [^note]:
